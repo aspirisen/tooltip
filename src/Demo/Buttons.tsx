@@ -3,38 +3,29 @@ import cn from "../styles/Demo.module.css";
 import { Tooltip } from "../components/Tooltip";
 
 export const Buttons = () => {
-  const top = React.createRef<HTMLButtonElement>();
-  const right = React.createRef<HTMLButtonElement>();
-  const bottom = React.createRef<HTMLButtonElement>();
-  const left = React.createRef<HTMLButtonElement>();
-
   return (
     <div>
       <div className={cn.item}>
-        <button ref={top}>Top</button>
-        <Tooltip placement="top" target={top}>
-          Top content
+        <Tooltip<HTMLButtonElement> placement="top" content="Top content">
+          {ref => <button ref={ref}>Top</button>}
         </Tooltip>
       </div>
 
       <div className={cn.item}>
-        <button ref={right}>Right</button>
-        <Tooltip placement="right" target={right}>
-          Right content
+        <Tooltip<HTMLButtonElement> placement="right" content="Right content">
+          {ref => <button ref={ref}>Right</button>}
         </Tooltip>
       </div>
 
       <div className={cn.item}>
-        <button ref={bottom}>Bottom</button>
-        <Tooltip placement="bottom" target={bottom}>
-          Bottom content
+        <Tooltip<HTMLButtonElement> placement="bottom" content="Bottom content">
+          {ref => <button ref={ref}>Bottom</button>}
         </Tooltip>
       </div>
 
       <div className={cn.item}>
-        <button ref={left}>Left</button>
-        <Tooltip placement="left" target={left}>
-          Left content
+        <Tooltip<HTMLButtonElement> placement="left" content="Left content">
+          {ref => <button ref={ref}>Left</button>}
         </Tooltip>
       </div>
     </div>

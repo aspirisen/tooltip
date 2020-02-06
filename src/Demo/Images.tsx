@@ -4,22 +4,20 @@ import { Tooltip } from "../components/Tooltip";
 import icon from "./icon.png";
 
 export const Images = () => {
-  const imageTarget = React.createRef<HTMLImageElement>();
-  const tooltipImageTarget = React.createRef<HTMLImageElement>();
-
   return (
     <div>
       <div className={cn.item}>
-        <img ref={imageTarget} src={icon} width="40px" />
-        <Tooltip placement="right" target={imageTarget}>
-          Open images
+        <Tooltip<HTMLImageElement> placement="right" content="Open images">
+          {ref => <img ref={ref} src={icon} width="40px" />}
         </Tooltip>
       </div>
 
-      <div className={cn.item}>
-        <span ref={tooltipImageTarget}>Tooltip with image</span>
-        <Tooltip placement="bottom" target={tooltipImageTarget}>
-          <img src={icon} width="80px" />
+      <div>
+        <Tooltip<HTMLSpanElement>
+          placement="bottom"
+          content={<img src={icon} width="80px" />}
+        >
+          {ref => <span ref={ref}>Tooltip with image</span>}
         </Tooltip>
       </div>
     </div>

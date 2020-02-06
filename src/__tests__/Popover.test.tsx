@@ -1,9 +1,9 @@
 import React from "react";
 import { render, act } from "@testing-library/react";
-import { Tooltip } from "../components/Tooltip";
+import { Popover } from "../components/Popover";
 
-describe("getPosition", () => {
-  it("should render tooltip", async () => {
+describe("Popover", () => {
+  it("should render Popover", async () => {
     let enter: Function;
 
     const element = {
@@ -28,9 +28,9 @@ describe("getPosition", () => {
     const target = { current: element };
 
     const wrapper = render(
-      <Tooltip placement="bottom" target={target}>
+      <Popover placement="bottom" target={target}>
         <div>Some Content</div>
-      </Tooltip>
+      </Popover>
     );
 
     act(() => {
@@ -40,7 +40,7 @@ describe("getPosition", () => {
     expect(wrapper.container).toMatchSnapshot();
   });
 
-  it("should open tooltip on mouse enter", async () => {
+  it("should open Popover on mouse enter", async () => {
     let enter: Function;
 
     const element = {
@@ -67,9 +67,9 @@ describe("getPosition", () => {
     const id = "content";
 
     const wrapper = render(
-      <Tooltip placement="bottom" target={target}>
+      <Popover placement="bottom" target={target}>
         <div data-testid={id}>Some Content</div>
-      </Tooltip>
+      </Popover>
     );
 
     act(() => {
@@ -111,9 +111,9 @@ describe("getPosition", () => {
     const id = "content";
 
     const wrapper = render(
-      <Tooltip placement="bottom" target={target}>
+      <Popover placement="bottom" target={target}>
         <div data-testid={id}>Some Content</div>
-      </Tooltip>
+      </Popover>
     );
 
     act(() => {

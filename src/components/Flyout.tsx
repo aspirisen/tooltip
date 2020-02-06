@@ -1,7 +1,8 @@
 import React from "react";
 import { TooltipPlacement } from "../core/Tooltip.types";
 import { getPosition } from "../core/getPosition";
-import * as cn from "../styles/Flyout.module.css";
+import { useClientRect } from "../core/useClientRect";
+import cn from "../styles/Flyout.module.css";
 
 export interface FlyoutProps {
   targetRect: DOMRect;
@@ -9,15 +10,7 @@ export interface FlyoutProps {
 }
 
 export const Flyout: React.FC<FlyoutProps> = props => {
-  const ref = React.createRef<HTMLDivElement>();
-
-  const [tooltipRect, setTooltipRect] = React.useState<DOMRect | undefined>(
-    undefined
-  );
-
-  React.useEffect(() => {
-    setTooltipRect(ref.current?.getBoundingClientRect());
-  }, [props.targetRect]);
+  const [tooltipRect, ref] = useClientRect<HTMLDivElement>([props.targetRect]);
 
   const styles: React.CSSProperties =
     props.targetRect && tooltipRect
