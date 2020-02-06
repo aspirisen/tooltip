@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+}
+
+.wrapper {
+  padding: 40px;
+}
+
+.item {
+  display: inline-block;
+  margin: 40px;
+}

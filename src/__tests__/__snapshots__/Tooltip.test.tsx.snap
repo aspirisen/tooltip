@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getPosition should render tooltip 1`] = `
+<div>
+  <div
+    style="top: 40px; left: 20px;"
+  >
+    <div>
+      <div>
+        Some Content
+      </div>
+    </div>
+  </div>
+</div>
+`;
